@@ -69,7 +69,7 @@ async def on_message(message):
     if message.author.bot:
         return
 
-    # 🔥 RESPUESTA CUANDO MENCIONAN AL BOT
+    # Respuesta cuando mencionan al bot
     if bot.user in message.mentions:
         await message.channel.send(f"{message.author.mention} NO tengo permitido hablar con Geis 😎")
 
@@ -203,4 +203,9 @@ async def actualizar_top():
 # Iniciar bot
 # -----------------------------
 
-
+if __name__ == "__main__":
+    token = os.getenv("TOKEN")
+    if token is None:
+        print("ERROR: No se encontró la variable TOKEN en Render.")
+    else:
+        bot.run(token)
